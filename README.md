@@ -1,0 +1,2 @@
+# Fastapp
+FastAPI, PostgreSQL, Docker
