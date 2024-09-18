@@ -1,0 +1,6 @@
+__pycache__/
+.vscode/
+.env
+/db_name.txt
+/db_password.txt
+venv/
