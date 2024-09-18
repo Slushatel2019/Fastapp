@@ -6,7 +6,7 @@
 
 # Want to help us make this template better? Share your feedback here: https://forms.gle/ybq9Krt8jtBL3iCk7
 
-ARG PYTHON_VERSION=3.10.12
+ARG PYTHON_VERSION=3.12.5
 FROM python:${PYTHON_VERSION}-slim as base
 
 # Prevents Python from writing pyc files.
@@ -45,7 +45,7 @@ USER appuser
 COPY . .
 
 # Expose the port that the application listens on.
-EXPOSE 8000
+EXPOSE 80
 
 # Run the application.
-CMD fastapi run main.py
+CMD ["fastapi", "run", "main.py", "--port", "80"]

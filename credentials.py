@@ -1,15 +1,16 @@
 import os
 from dotenv import load_dotenv
+from dataclasses import dataclass
+from .logs.logger import logger
 
 
+@dataclass
 class Credentials:
-
-    def __init__(self, user_name, password, host, port, database) -> None:
-        self.user_name = user_name
-        self.password = password
-        self.host = host
-        self.port = port
-        self.database = database
+    user_name: str
+    password: str
+    host: int
+    port: int
+    database: str
 
     def get(self):
         return {'user_name': self.user_name,
@@ -21,5 +22,9 @@ class Credentials:
 
 load_dotenv()
 
-cred = Credentials(os.environ.get("USER_NAME"), os.environ.get(
-    "PASSWORD"), os.environ.get("HOST"), os.environ.get("PORT"), os.environ.get('DATABASE'))
+cred = Credentials(os.environ.get("USER_NAME"),
+                   os.environ.get("PASSWORD"),
+                   os.environ.get("HOST"),
+                   os.environ.get("PORT"),
+                   os.environ.get('DATABASE'))
+logger.info('credentials successfully loaded')
